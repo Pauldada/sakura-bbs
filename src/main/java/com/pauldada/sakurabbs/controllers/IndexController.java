@@ -26,6 +26,6 @@ public class IndexController {
         List<User> users = userRepository.findAll();
         model.addAttribute("tasks",tasks);
         model.addAttribute("users",users);
-        return "index";
+        return "main/index";
     }
 }

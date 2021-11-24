@@ -20,7 +20,7 @@ public class UserController {
     public String DisplayUserForm(Model model){
         User aUser=new User();
         model.addAttribute("user",aUser);       //第一个参数为在HTML模板中对象的名称，第二个参数为在控制层中要传的数据
-        return "new-user";
+        return "users/new-user";
     }
 
     @PostMapping("/save")   //响应网站的POST请求后的保存用户，即处理保存到数据库的行为

@@ -20,7 +20,7 @@ public class TaskController {
     public String DisplayTaskForm(Model model){
         Task aTask=new Task();
         model.addAttribute("task",aTask);       //第一个参数为在HTML模板中对象的名称，第二个参数为在控制层中要传的数据
-        return "new-task";
+        return "tasks/new-task";
     }
 
     @PostMapping("/save")   //响应网站的POST请求后的保存任务，即处理保存到数据库的行为
