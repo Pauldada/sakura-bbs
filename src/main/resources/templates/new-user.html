@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- 必要的标签 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link crossorigin="anonymous" integrity="sha512-6KY5s6UI5J7SVYuZB4S/CZMyPylqyyNZco376NM2Z8Sb8OxEdp02e1jkKk/wZxIEmjQ6DRCEBhni+gpr9c4tvA==" href="https://lib.baomitu.com/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+                                            <!-- ↓ 该user由控制层来 -->
+        <form action="/users/save" th:object="${user}" method="POST">
+            <input type="text" placeholder="用户名称" th:field="${user.user_name}">
+            <input type="text" placeholder="用户邮箱" th:field="${user.user_email}">
+            <input type="text" placeholder="用户推特id" th:field="${user.user_twitter_id}">
+            <button type="submit">新建用户</button>
+        </form>
+    </div>
+
+</body>
+
+</html>
