@@ -12,16 +12,17 @@
 <body>
 
     <div class="container">
-        <form action="/projects/save" method="POST">
-            <input type="text" placeholder="项目名称">
-            <select>
-                <option value="未开始">待领取的新任务</option>
-                <option value="进行中">已领取的任务</option>
-                <option value="已完成">已完成的任务</option>
-                <option value="已完成">失败的任务</option>
+                                            <!-- ↓ 该task由控制层来 -->
+        <form action="/tasks/save" th:object="${task}" method="POST">
+            <input type="text" placeholder="任务名称" th:field="${task.task_name}">
+            <select th:field="${task.task_stage}">
+                <option value="待领取的任务">待领取的任务</option>
+                <option value="已领取的任务">已领取的任务</option>
+                <option value="已完成的成功任务">已完成的成功任务</option>
+                <option value="已完成的失败任务">已完成的失败任务</option>
             </select>
-            <textarea type="text" placeholder="输入项目描述"></textarea>
-            <button type="submit">新建项目</button>
+            <textarea type="text" placeholder="输入任务内容" th:field="${task.task_description}"></textarea>
+            <button type="submit">新建任务</button>
         </form>
     </div>
 
