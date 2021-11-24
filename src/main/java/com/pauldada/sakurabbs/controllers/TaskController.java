@@ -9,12 +9,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller     //由Spring管理的控制层组件
 @RequestMapping("tasks")        //指定该控制层的整体路径
 public class TaskController {
 
     @Autowired
     TaskRepository taskRepository;
+
+    @GetMapping
+    public String DisplayTasks(Model model){
+        List<Task> tasks = taskRepository.findAll();
+        model.addAttribute("tasks",tasks);
+        return "tasks/list-tasks";
+    }
 
     @GetMapping("/new")     //响应访问管理任务页面的GET请求的新建任务
     public String DisplayTaskForm(Model model){

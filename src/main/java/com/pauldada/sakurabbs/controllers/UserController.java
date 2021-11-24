@@ -9,12 +9,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller     //由Spring管理的控制层组件
 @RequestMapping("users")        //指定该控制层的整体路径
 public class UserController {
 
     @Autowired
     UserRepository userRepository;
+
+    @GetMapping
+    public String DisplayUsers(Model model){
+        List<User> users = userRepository.findAll();
+        model.addAttribute("users",users);
+        return "users/list-users";
+    }
 
     @GetMapping("/new")     //响应访问管理用户页面的GET请求的新建任务
     public String DisplayUserForm(Model model){
